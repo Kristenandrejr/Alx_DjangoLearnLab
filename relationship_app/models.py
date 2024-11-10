@@ -20,4 +20,8 @@ class Librarian(models.Model):
     library_name = models.CharField(max_length=100)
 
     def __str__(self):
+<<<<<<< HEAD
         return f"{self.name} at {self.library_name}"
+=======
+        return self.name
+>>>>>>> d5fd5adc1b87251729b840f3145415bb0e655970
