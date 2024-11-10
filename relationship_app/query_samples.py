@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # relationship_app/query_samples.py
 
 from relationship_app.models import Author, Book, Library, Librarian
@@ -19,7 +18,7 @@ def get_librarian_for_library(library_name):
     library = Library.objects.get(name=library_name)
     librarian = Librarian.objects.get(library=library)
     print(librarian.name)
-=======
+
 from relationship_app.models import Author, Book, Library, Librarian
 
 # Query all books by a specific author
@@ -41,4 +40,3 @@ def get_librarian_for_library(library_name):
     library = Library.objects.get(name=library_name)
     librarian = Librarian.objects.get(library=library)
     print(librarian.name)
->>>>>>> b7d9ad99397a5a532421fa016c986614291d7810
