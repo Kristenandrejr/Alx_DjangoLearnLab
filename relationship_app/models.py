@@ -1,3 +1,5 @@
+# relationship_app/models.py
+
 from django.db import models
 
 class Author(models.Model):
@@ -26,3 +28,7 @@ class Librarian(models.Model):
 
     def __str__(self):
         return self.name
+<<<<<<< HEAD
+=======
+
+>>>>>>> b7d9ad99397a5a532421fa016c986614291d7810
