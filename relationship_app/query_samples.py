@@ -12,7 +12,7 @@ def get_books_by_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
         books = Book.objects.filter(author=author)
-        return books
+        return list(books.values('title'))  # Return a list of book titles
     except Author.DoesNotExist:
         return f"No author found with the name: {author_name}"
 
@@ -20,7 +20,7 @@ def get_books_by_author(author_name):
 def get_books_in_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        return library.books.all()
+        return list(library.books.values('title'))  # Return a list of book titles
     except Library.DoesNotExist:
         return f"No library found with the name: {library_name}"
 
@@ -28,7 +28,7 @@ def get_books_in_library(library_name):
 def get_librarian_for_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        return library.librarian
+        return library.librarian.name  # Return the librarian's name
     except Library.DoesNotExist:
         return f"No library found with the name: {library_name}"
     except Librarian.DoesNotExist:
@@ -36,6 +36,7 @@ def get_librarian_for_library(library_name):
 
 # Example usage
 if __name__ == "__main__":
-    print(get_books_by_author("Author Name"))
-    print(get_books_in_library("Library Name"))
-    print(get_librarian_for_library("Library Name"))
+    # Replace these with actual names from your database for testing
+    print(get_books_by_author("Author Name"))  # Test with an actual author name
+    print(get_books_in_library("Library Name"))  # Test with an actual library name
+    print(get_librarian_for_library("Library Name"))  # Test with an actual library name
