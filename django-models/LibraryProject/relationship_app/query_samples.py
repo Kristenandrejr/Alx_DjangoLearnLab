@@ -1,4 +1,4 @@
-from .models import Library, Author, Librarian
+from .models import Library, Author, Book, Librarian
 
 def list_books_in_library(library_name):
     # Retrieves a library by name and lists all its books
@@ -13,7 +13,7 @@ def query_books_by_author(author_name):
     return books
 
 def retrieve_librarian_for_library(library_name):
-    # Retrieves the librarian for a specific library
+    # Retrieves the librarian for a specific library using a OneToOneField
     library = Library.objects.get(name=library_name)
-    librarian = library.librarian  # Assumes `Librarian` has a OneToOneField with Library
+    librarian = Librarian.objects.get(library=library)  # Fetch librarian using library field
     return librarian
