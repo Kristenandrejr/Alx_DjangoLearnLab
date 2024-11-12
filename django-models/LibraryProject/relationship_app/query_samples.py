@@ -1,14 +1,19 @@
-from .models import Book, Author, Library, Librarian
+from .models import Library, Author, Librarian
 
-# Query to list all books in a library
-def list_books_in_library(library_id):
-    library = Library.objects.get(id=library_id)
-    return library.books.all()
+def list_books_in_library(library_name):
+    # Retrieves a library by name and lists all its books
+    library = Library.objects.get(name=library_name)
+    books = library.books.all()  # Assumes `books` is a ManyToManyField in Library
+    return books
 
-# Query to get all books by a specific author
-def books_by_author(author_id):
-    return Book.objects.filter(author_id=author_id)
+def query_books_by_author(author_name):
+    # Retrieves all books by a specific author
+    author = Author.objects.get(name=author_name)
+    books = author.book_set.all()  # Retrieves related books for the author
+    return books
 
-# Query to retrieve the librarian for a library
-def librarian_for_library(library_id):
-    return Librarian.objects.get(library_id=library_id)
+def retrieve_librarian_for_library(library_name):
+    # Retrieves the librarian for a specific library
+    library = Library.objects.get(name=library_name)
+    librarian = library.librarian  # Assumes `Librarian` has a OneToOneField with Library
+    return librarian
