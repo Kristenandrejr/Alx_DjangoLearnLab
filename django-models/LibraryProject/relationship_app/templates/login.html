@@ -1,9 +1,10 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>Login</h1>
@@ -12,12 +13,6 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
-
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
-
-    {% if next %}
-        <p>You were redirected here because you need to log in. After logging in, you will be redirected to your destination.</p>
-        <p>Return to <a href="{{ next }}">the page you were trying to access</a>.</p>
-    {% endif %}
+    <a href="{% url 'register' %}">Register</a>
 </body>
 </html>
