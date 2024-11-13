@@ -11,6 +11,10 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
-    <a href="{% url 'register' %}">Don't have an account? Register here</a>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+
+    {% if next %}
+        <p>Return to <a href="{{ next }}">the page you were on</a> before logging in.</p>
+    {% endif %}
 </body>
 </html>
