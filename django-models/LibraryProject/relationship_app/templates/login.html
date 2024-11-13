@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
@@ -11,10 +12,12 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+
     <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
 
     {% if next %}
-        <p>Return to <a href="{{ next }}">the page you were on</a> before logging in.</p>
+        <p>You were redirected here because you need to log in. After logging in, you will be redirected to your destination.</p>
+        <p>Return to <a href="{{ next }}">the page you were trying to access</a>.</p>
     {% endif %}
 </body>
 </html>
