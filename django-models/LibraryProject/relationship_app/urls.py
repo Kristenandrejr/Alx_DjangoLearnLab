@@ -1,12 +1,11 @@
 from django.urls import path
-from . import views  # Import your views
+from .views import list_books, LibraryDetailView  # Explicitly import the function-based and class-based views
 from django.contrib.auth.views import LoginView, LogoutView  # Import LoginView and LogoutView
 
-# Ensure 'list_books' is available in views
 urlpatterns = [
     # Books and Library Details
-    path('books/', views.list_books, name='list_books'),  # This is fine, 'list_books' is accessed via 'views'
-    path('library/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
+    path('books/', list_books, name='list_books'),  # Function-based view
+    path('library/<int:pk>/', LibraryDetailView.as_view(), name='library_detail'),  # Class-based view
 
     # Custom Authentication Views
     path('login/', views.CustomLoginView.as_view(), name='login'),
@@ -20,4 +19,3 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('home/', views.home, name='home'),
 ]
-
