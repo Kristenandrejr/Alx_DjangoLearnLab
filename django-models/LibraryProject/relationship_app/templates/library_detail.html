@@ -1,11 +1,8 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library Detail</title>
-</head>
-<body>
+{% block title %}Library Detail{% endblock %}
+
+{% block content %}
     <h1>Library: {{ library.name }}</h1>
     <h2>Books in Library:</h2>
     <ul>
@@ -13,5 +10,4 @@
         <li>{{ book.title }} by {{ book.author.name }} (Published {{ book.publication_year|date:"Y" }})</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
