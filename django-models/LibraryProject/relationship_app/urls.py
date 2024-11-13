@@ -2,9 +2,10 @@ from django.urls import path
 from . import views  # Import your views
 from django.contrib.auth.views import LoginView, LogoutView  # Import LoginView and LogoutView
 
+# Ensure 'list_books' is available in views
 urlpatterns = [
     # Books and Library Details
-    path('books/', views.list_books, name='list_books'),
+    path('books/', views.list_books, name='list_books'),  # This is fine, 'list_books' is accessed via 'views'
     path('library/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
 
     # Custom Authentication Views
@@ -19,3 +20,4 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('home/', views.home, name='home'),
 ]
+
