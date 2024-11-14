@@ -2,7 +2,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect
-from django.views.generic.detail import DetailView  # Correct import for DetailView
+from django.views.generic.detail import DetailView
 from .models import Library, Book
 
 # Function-based view to list all books
@@ -26,6 +26,7 @@ def register(request):
             return redirect('list_books')  # Redirect to the books list or any page you prefer
     else:
         form = UserCreationForm()
+
     return render(request, 'relationship_app/register.html', {'form': form})
 
 # Using Django's built-in LoginView
