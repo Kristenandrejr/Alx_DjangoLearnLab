@@ -12,6 +12,7 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
+    # Define the Meta class for custom permissions
     class Meta:
         permissions = (
             ('can_add_book', 'Can add book'),
@@ -49,3 +50,4 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.role}"
+
