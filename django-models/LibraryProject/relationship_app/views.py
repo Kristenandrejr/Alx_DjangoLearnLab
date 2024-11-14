@@ -1,23 +1,33 @@
-from django.contrib.auth.decorators import permission_required
-from django.shortcuts import render, get_object_or_404
-from .models import Book
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
-# View to add a book
-@permission_required('relationship_app.can_add_book', raise_exception=True)
-def add_book(request):
-    # Your code for adding a book goes here
-    return render(request, 'add_book.html')
+# User registration view
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user to the database
+            return redirect('login')  # Redirect to login page after successful registration
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
 
-# View to edit a book
-@permission_required('relationship_app.can_change_book', raise_exception=True)
-def edit_book(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    # Your code for editing a book goes here
-    return render(request, 'edit_book.html', {'book': book})
+# User login view
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)  # Log the user in
+            return redirect('home')  # Redirect to the homepage or dashboard after login
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
-# View to delete a book
-@permission_required('relationship_app.can_delete_book', raise_exception=True)
-def delete_book(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    # Your code for deleting a book goes here
-    return render(request, 'delete_book.html', {'book': book})
+# User logout view
+def logout_view(request):
+    logout(request)  # Log the user out
+    return render(request, 'logout.html')  # Redirect to the logout confirmation page
