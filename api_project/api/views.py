@@ -4,5 +4,8 @@ from .models import Book
 from .serializers import BookSerializer
 
 class BookList(ListAPIView):
-    queryset = Book.objects.all()  # Retrieve all books
-    serializer_class = BookSerializer  # Use the BookSerializer to serialize data
+    """
+    A view that provides a list of all books.
+    """
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
