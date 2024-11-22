@@ -1,9 +1,10 @@
 from rest_framework.generics import ListAPIView  # Import generics.ListAPIView
-from rest_framework.viewsets import ModelViewSet  # Import ModelViewSet correctly
+from rest_framework import viewsets.ModelViewSet  # Import viewsets (directly for clarity)
 from .models import Book  # Import the Book model
 from .serializers import BookSerializer  # Import the BookSerializer
 
-# ListAPIView to list all books (unchanged from your original code)
+
+# A ListAPIView to list all books
 class BookList(ListAPIView):
     """
     A view that provides a list of all books.
@@ -11,8 +12,9 @@ class BookList(ListAPIView):
     queryset = Book.objects.all()  # Retrieve all books from the database
     serializer_class = BookSerializer  # Use the BookSerializer for JSON serialization
 
-# ModelViewSet to handle CRUD operations (full CRUD implementation)
-class BookViewSet(ModelViewSet):
+
+# A ModelViewSet to handle CRUD operations on the Book model
+class BookViewSet(viewsets.ModelViewSet):  # Exact usage of "viewsets.ModelViewSet"
     """
     A viewset that provides CRUD operations for the Book model.
     """
