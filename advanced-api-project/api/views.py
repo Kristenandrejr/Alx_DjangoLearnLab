@@ -1,6 +1,7 @@
 from rest_framework import generics, filters
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django_filters import rest_framework  # <-- This line is added
 from django_filters.rest_framework import DjangoFilterBackend
 import datetime
 from .models import Book
@@ -77,4 +78,3 @@ class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
-
