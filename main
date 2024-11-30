@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 baa4a0f488a662ea16264641a4a3088df1c3ee17 Christian Edeh <kristenkrisjr@gmail.com> 1732983194 +0100	commit (initial): Initial commit with Author and Book models, custom serializers
+baa4a0f488a662ea16264641a4a3088df1c3ee17 baa4a0f488a662ea16264641a4a3088df1c3ee17 Christian Edeh <kristenkrisjr@gmail.com> 1732983303 +0100	Branch: renamed refs/heads/master to refs/heads/main
+baa4a0f488a662ea16264641a4a3088df1c3ee17 45cd3390e824b81edaf7e568bf7562a5f7ced3ac Christian Edeh <kristenkrisjr@gmail.com> 1732983418 +0100	commit: Resolved merge conflicts
