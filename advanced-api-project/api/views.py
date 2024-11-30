@@ -1,6 +1,6 @@
 from rest_framework import generics, filters
 from rest_framework.exceptions import ValidationError
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated  # <-- This line is added
 from django_filters import rest_framework  # <-- This line is added
 from django_filters.rest_framework import DjangoFilterBackend
 import datetime
