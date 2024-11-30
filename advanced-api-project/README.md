@@ -31,3 +31,18 @@ A Django REST Framework project for managing books and authors, demonstrating th
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/advanced_api_project.git
+
+
+   ### **README.md: API Query Features**
+
+#### **Books API Endpoints**
+
+*   **Filter by fields**:
+    *   `/api/books/?author=John Doe` - Filter books by author.
+    *   `/api/books/?publication_year=2023` - Filter books by publication year.
+*   **Search**:
+    *   `/api/books/?search=Python` - Search for books with "Python" in the title or author fields.
+*   **Ordering**:
+    *   `/api/books/?ordering=title` - Order books by title (ascending).
+    *   `/api/books/?ordering=-publication_year` - Order books by publication year (descending).
+
