@@ -1,4 +1,3 @@
-# blog/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -38,4 +37,9 @@ def user_logout(request):
 # User Profile View (Requires login)
 @login_required
 def profile(request):
-    return render(request, 'blog/profile.html', {'user': request.user})  # Show the user's profile page if authenticated
+    if request.method == 'POST':  # Handle form submission to update email
+        request.user.email = request.POST['email']  # Update the user's email
+        request.user.save()  # Save the updated user instance
+        return redirect('profile')  # Redirect to the profile page after saving changes
+
+    return render(request, 'blog/profile.html', {'user': request.user})  # Render the user's profile page if GET request
