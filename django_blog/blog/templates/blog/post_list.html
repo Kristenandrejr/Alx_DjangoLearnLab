@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<section>
+    <h2>Blog Posts</h2>
+    {% for post in posts %}
+    <article>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-content">{{ post.content|truncatewords:50 }}</p>
+        <small>Published on {{ post.published_date }}</small>
+    </article>
+    <hr>
+    {% endfor %}
+</section>
+{% endblock %}
