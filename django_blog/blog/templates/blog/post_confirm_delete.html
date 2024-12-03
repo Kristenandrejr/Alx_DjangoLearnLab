@@ -1,0 +1,9 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h2>Delete "{{ post.title }}"?</h2>
+<p>This action cannot be undone.</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+{% endblock %}
