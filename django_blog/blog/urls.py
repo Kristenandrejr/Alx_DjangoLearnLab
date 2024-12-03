@@ -9,6 +9,7 @@ from .views import (
     add_comment, 
     edit_comment, 
     delete_comment,
+    PostByTagListView,  # Import the view for posts by tag
 )
 
 urlpatterns = [
@@ -29,4 +30,7 @@ urlpatterns = [
     path('post/<int:pk>/comments/new/', add_comment, name='add-comment'),  # This was missing
     path('comment/<int:pk>/update/', edit_comment, name='edit-comment'),
     path('comment/<int:pk>/delete/', delete_comment, name='delete-comment'),
+
+    # New URL pattern for filtering posts by tag
+    path('tags/<slug:tag_slug>/', PostByTagListView.as_view(), name='post-by-tag'),
 ]
