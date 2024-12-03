@@ -26,7 +26,7 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 
     # Comment management URLs
-    path('post/<int:post_id>/comments/new/', add_comment, name='add-comment'),
+    path('post/<int:pk>/comments/new/', add_comment, name='add-comment'),  # This was missing
     path('comment/<int:pk>/update/', edit_comment, name='edit-comment'),
     path('comment/<int:pk>/delete/', delete_comment, name='delete-comment'),
 ]
