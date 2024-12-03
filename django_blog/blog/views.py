@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import Q  # Importing Q objects for complex queries
 from .forms import CustomUserCreationForm, CommentForm
 from .models import Post, Comment
 
@@ -160,3 +161,13 @@ def delete_comment(request, comment_id):
         comment.delete()
         return redirect('post-detail', pk=post_id)
     return render(request, 'blog/delete_comment.html', {'comment': comment})
+
+# Search Functionality
+def search(request):
+    query = request.GET.get('q', '')  # Get the search query from the request
+    results = Post.objects.filter(
+        Q(title__icontains=query) | Q(content__icontains=query) |
+        Q(tags__name__icontains=query)  # Filter by title, content, or tags
+    ).distinct()
+    return render(request, 'blog/search_results.html', {'results': results, 'query': query})  # Render the search results
+
