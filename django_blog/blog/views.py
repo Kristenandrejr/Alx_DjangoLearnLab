@@ -89,7 +89,42 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post = self.get_object()
         return self.request.user == post.author
 
-# Comment Functionality
+# Comment Functionality (Class-Based Views for CRUD)
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'blog/add_comment.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.post = get_object_or_404(Post, id=self.kwargs['post_id'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return redirect('post-detail', pk=self.kwargs['post_id'])
+
+class CommentUpdateView(LoginRequiredMixin, UpdateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'blog/edit_comment.html'
+
+    def get_object(self):
+        return get_object_or_404(Comment, id=self.kwargs['comment_id'], author=self.request.user)
+
+    def get_success_url(self):
+        return redirect('post-detail', pk=self.object.post.id)
+
+class CommentDeleteView(LoginRequiredMixin, DeleteView):
+    model = Comment
+    template_name = 'blog/delete_comment.html'
+
+    def get_object(self):
+        return get_object_or_404(Comment, id=self.kwargs['comment_id'], author=self.request.user)
+
+    def get_success_url(self):
+        return redirect('post-detail', pk=self.object.post.id)
+
+# Comment Functionality (Function-Based Views)
 @login_required
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
