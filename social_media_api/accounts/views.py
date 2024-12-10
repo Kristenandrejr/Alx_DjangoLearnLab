@@ -1,36 +1,27 @@
-from django.shortcuts import render
-from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import Post, Comment
-from .serializers import PostSerializer, CommentSerializer
+from .models import CustomUser
+from .serializers import FollowSerializer
 
-# Existing ViewSets
-class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+class FollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = FollowSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    def post(self, request, user_id):
+        user_to_follow = CustomUser.objects.get(id=user_id)
+        if user_to_follow == request.user:
+            return Response({"detail": "You cannot follow yourself."}, status=400)
+        request.user.following.add(user_to_follow)
+        return Response({"detail": "Successfully followed the user."}, status=200)
 
+class UnfollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = FollowSerializer
 
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
-
-# Added user_feed Function
-@api_view(['GET'])
-def user_feed(request):
-    """
-    Returns a feed of posts created by the users that the requesting user follows.
-    """
-    followed_users = request.user.following.all()  # Assuming a 'following' field exists on the user model
-    posts = Post.objects.filter(author__in=followed_users).order_by('-created_at')
-    serializer = PostSerializer(posts, many=True)
-    return Response(serializer.data)
+    def post(self, request, user_id):
+        user_to_unfollow = CustomUser.objects.get(id=user_id)
+        if user_to_unfollow == request.user:
+            return Response({"detail": "You cannot unfollow yourself."}, status=400)
+        request.user.following.remove(user_to_unfollow)
+        return Response({"detail": "Successfully unfollowed the user."}, status=200)
