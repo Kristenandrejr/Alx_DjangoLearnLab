@@ -5,7 +5,11 @@ from django.contrib.auth import get_user_model
 CustomUser = get_user_model()
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    username = serializers.CharField(max_length=150, required=True)
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
+    bio = serializers.CharField(max_length=500, required=False, allow_blank=True)
+    profile_picture = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = CustomUser
@@ -23,4 +27,3 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         # Generate a token for the user
         Token.objects.create(user=user)
         return user
-
