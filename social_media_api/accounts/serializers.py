@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 CustomUser = get_user_model()
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
+    ["serializers.CharField()"]
     username = serializers.CharField(max_length=150, required=True)
     email = serializers.EmailField(required=True)
     password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
