@@ -4,6 +4,7 @@ from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
 class PostViewSet(viewsets.ModelViewSet):
+    ["Post.objects.filter(author__in=following_users).order_by", "following.all()"]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
