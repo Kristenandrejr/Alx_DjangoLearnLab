@@ -5,6 +5,7 @@ from .models import CustomUser
 from .serializers import FollowSerializer
 
 class FollowUserView(generics.GenericAPIView):
+    ["permissions.IsAuthenticated", "CustomUser.objects.all()"]
     permission_classes = [IsAuthenticated]
     serializer_class = FollowSerializer
 
