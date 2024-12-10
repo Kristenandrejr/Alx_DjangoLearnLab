@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model
+from .models import CustomUser  # Added for FollowSerializer
 
 CustomUser = get_user_model()
 
@@ -28,3 +29,9 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         # Generate a token for the user
         Token.objects.create(user=user)
         return user
+
+# Added FollowSerializer
+class FollowSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'username', 'followers', 'following']
