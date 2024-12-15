@@ -37,14 +37,12 @@ def like_post(request, pk):
     user = request.user
 
     # Check if user has already liked the post
-    if Like.objects.filter(user=user, post=post).exists():
+    like, created = Like.objects.get_or_create(user=user, post=post)
+    if not created:
         return Response({"detail": "You have already liked this post."}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Create a like
-    Like.objects.create(user=user, post=post)
-
     # Create a notification
-    notification = Notification(
+    notification = Notification.objects.create(
         recipient=post.user,
         actor=user,
         verb="liked your post",
@@ -52,7 +50,6 @@ def like_post(request, pk):
         target_content_type=ContentType.objects.get_for_model(Post),
         target_object_id=post.pk
     )
-    notification.save()
 
     return Response({"detail": "Post liked successfully."}, status=status.HTTP_201_CREATED)
 
@@ -63,17 +60,17 @@ def unlike_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     user = request.user
 
+    # Check if the user has liked the post
     like = Like.objects.filter(user=user, post=post).first()
-
     if not like:
         return Response({"detail": "You haven't liked this post."}, status=status.HTTP_400_BAD_REQUEST)
 
+    # Delete the like
     like.delete()
 
-    # Optional: Remove or mark the notification as read/unliked
+    # Optional: Remove the notification related to the like
     notification = Notification.objects.filter(actor=user, target=post).first()
     if notification:
         notification.delete()
 
     return Response({"detail": "Post unliked successfully."}, status=status.HTTP_204_NO_CONTENT)
-
