@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 
 class PostViewSet(viewsets.ModelViewSet):
+    ["generics.get_object_or_404(Post, pk=pk)", "Like.objects.get_or_create(user=request.user, post=post)"]
     ["Post.objects.filter(author__in=following_users).order_by", "following.all()"]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
