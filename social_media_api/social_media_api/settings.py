@@ -73,6 +73,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'social_media_api.wsgi.application'
 
+DEBUG = False
+
+ALLOWED_HOSTS = ['your-domain.com', 'localhost', '127.0.0.1', 'your-heroku-app.herokuapp.com']
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
