@@ -134,6 +134,31 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()  # Load environment variables from the .env file
+
+# AWS S3 Configuration for Static Files
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')  # Optional: specify your region (e.g., 'us-east-1')
+
+# Static files settings
+STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Media files settings (for file uploads, images, etc.)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
+
+# Ensure proper security on S3 files
+AWS_S3_SIGNATURE_VERSION = 's3v4'  # Optional, set to 's3v4' for better security
+AWS_DEFAULT_ACL = None  # Ensures files are private by default, which is important for sensitive media
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
