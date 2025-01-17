@@ -1,0 +1,142 @@
+[33mceaa664[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Delete advanced_features_and_security directory
+[33mfd37a37[m Resolve merge conflict and update .gitignore
+[33m50953cf[m Initial commit
+[33mf8d0bf9[m[33m ([m[1;32mmaster[m[33m)[m initial commit of LibraryProject
+[33meac57fa[m Update admin.py
+[33m8f06476[m Update models.py
+[33m213c519[m Update models.py
+[33m6ab6313[m Resolved merge conflicts
+[33m1b3673f[m Merge branch 'main' of https://github.com/Kristenandrejr/Alx_DjangoLearnLab
+[33m87420a0[m Implemented custom user model and updated related files
+[33mdf1eb32[m Update views.py
+[33me10026c[m Update views.py
+[33m367a797[m Update logout.html
+[33m84b5b6c[m Update login.html
+[33m197ba69[m Update register.html
+[33m1ae13ba[m Update register.html
+[33mef17f8b[m Update views.py
+[33m691907d[m Update views.py
+[33md6bf22c[m Update views.py
+[33md2fe281[m Update views.py
+[33m3760839[m Update models.py
+[33m8dcb22c[m Update urls.py
+[33md95b72b[m Update views.py
+[33me449fa9[m Update models.py
+[33m23f2ca6[m Update models.py
+[33m6567460[m Update models.py
+[33m06e07fd[m Update models.py
+[33m7e0f113[m Update models.py
+[33m2b5cabe[m Update models.py
+[33m6e04e0c[m Update models.py
+[33mcb5cd81[m Update models.py
+[33mc785193[m Add relationship_app/templates folder and .gitkeep file
+[33ma25010b[m Removed incorrect files from relationship_app
+[33m63a635e[m Merge branch 'main' of https://github.com/kristenandrejr/Alx_DjangoLearnLab
+[33m2c44b7a[m Add template files from relationship_app
+[33m4bbfb73[m Added relationship_app templates as regular files
+[33mf87e053[m Removed relationship_app/templates/relationship_app submodule
+[33m2e8426b[m Merged with main and resolved conflicts
+[33mee8bcd5[m Implemented role-based access control, updated models, views, signals, and templates
+[33m0c9e4b9[m Describe the changes you made
+[33m0eecb15[m Update urls.py
+[33m6bb0ef8[m Update urls.py
+[33mc1dc916[m Update register.html
+[33mffe5b4b[m Update logout.html
+[33m37d47fe[m Update login.html
+[33m94e76c6[m Merge branch 'main' of https://github.com/Kristenandrejr/Alx_DjangoLearnLab
+[33m22a11ff[m Initial commit for Django project with authentication and templates
+[33m717f3c6[m Delete django-models/LibraryProject/relationship_app/templates/register.html
+[33mf0d8c2c[m Delete django-models/LibraryProject/relationship_app/templates/logout.html
+[33ma180172[m Delete django-models/LibraryProject/relationship_app/templates/login.html
+[33m30779cc[m Implement user authentication views and templates
+[33mb0720fa[m Update urls.py
+[33mf6172f7[m Update urls.py
+[33maaf9bd6[m Update urls.py
+[33m779dd23[m Update urls.py
+[33m6d23050[m Update urls.py
+[33mdeab177[m Update login.html
+[33m710a3f5[m Update login.html
+[33m91771f0[m Update login.html
+[33m5ea91e7[m Update login.html
+[33mcd50718[m Update login.html
+[33m2838a22[m Update logout.html
+[33med3af06[m Update register.html
+[33mc1c5b1b[m Update login.html
+[33m752ece8[m Update register.html
+[33me006faf[m Update urls.py
+[33mc030307[m Update urls.py
+[33mc14432c[m Update urls.py
+[33m61ee353[m Update urls.py
+[33m491c501[m Update views.py
+[33m7f53acc[m Added user authentication (login, logout, register) and home view.
+[33m3e8f92a[m Update templates to display book lists and library details in HTML
+[33m45e414c[m Delete django-models/LibraryProject/relationship_app/templates directory
+[33mb4efc22[m Delete django-models/LibraryProject/relationship_app/templates/relationship_app
+[33m312f140[m Create relationship_app
+[33mcec9584[m Update library_detail.html
+[33me0b8167[m Update library_detail.html
+[33m010a872[m Update library_detail.html
+[33mab34be9[m Update library_detail.html
+[33m8f3e861[m Update library_detail.html
+[33md628352[m Update list_books.html
+[33mcc31b69[m Update library_detail.html
+[33m5e120ed[m Update library_detail.html
+[33m8d20253[m Update list_books.html
+[33m5dd98ee[m Update library_detail.html
+[33md736d30[m Update list_books.html
+[33m2b28955[m Update library_detail.html
+[33mbefebce[m Update library_detail.html
+[33m3319815[m Update list_books.html
+[33m69a4651[m Update urls.py
+[33m3769474[m Update views.py
+[33mf964f5a[m Update views.py
+[33m22bf40f[m Update views.py
+[33m54de483[m Update views.py
+[33m3817720[m Update urls.py
+[33m0f49e5c[m Merge branch 'main' of https://github.com/kristenandrejr/Alx_DjangoLearnLab
+[33me9272e8[m Implemented views and URL configuration for relationship_app
+[33mc2a8735[m Update query_samples.py
+[33md2bb97a[m Update query_samples.py
+[33m75566dc[m Update query_samples.py
+[33mb9e402c[m Update models.py
+[33m7c68949[m Implement advanced model relationships and sample queries in relationship_app
+[33m20a0abe[m Delete LibraryProject/relationship_app directory
+[33m8e32652[m Implement advanced model relationships and sample queries
+[33mb8f8070[m Update .gitignore to exclude database and cache files
+[33mac7770c[m t status merge branch
+[33m7f3e546[m Update models.py
+[33mf4384fc[m Update query_samples.py
+[33m10734db[m Add models and sample queries
+[33m912f8c2[m Update query_samples.py
+[33m3ddafb5[m Update query_samples.py
+[33mf1a4358[m Update models.py
+[33mcee6116[m Update query_samples.py
+[33md4e5fa0[m Update query_samples.py
+[33ma4ad7cb[m Update models.py
+[33md4ae200[m Update views.py
+[33md86092d[m Update views.py
+[33mb8115e2[m Update views.py
+[33mbed4e9a[m Updated views and URLs for relationship_app
+[33me52578d[m Resolved merge conflicts
+[33mfb540b9[m Implemented function-based and class-based views in relationship_app and updated URL configurations.
+[33mc02058f[m Update models.py
+[33ma94da53[m Update models.py
+[33mc80f899[m Update models.py
+[33me7ad4ec[m Update query_samples.py
+[33ma271b3d[m Update models.py
+[33m8412afb[m Update query_samples.py
+[33mf84b346[m Update models.py
+[33mc325d0c[m Fix admin.py and resolve conflicts
+[33md5fd5ad[m Update admin.py
+[33m66adf64[m Update models.py
+[33m68614f7[m Update query_samples.py
+[33m875d46e[m Update query_samples.py
+[33mb7927d9[m Update models.py
+[33mafecb85[m Resolve merge conflicts in models.py and query_samples.py
+[33m167831d[m Add models and query samples
+[33mb7d9ad9[m Update models.py
+[33mc4c319f[m Update query_samples.py
+[33maf2fbff[m Update models.py
+[33m0ecf76d[m Update query_samples.py
+[33m28b08ed[m Update models.py
+[33mfb8ed91[m Initial commit of django-models project with relationship_app
