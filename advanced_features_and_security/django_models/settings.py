@@ -38,16 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookshelf',
-    'csp',
 ]
-
-# CSP settings to restrict loading of scripts and styles
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'",)
-CSP_STYLE_SRC = ("'self'",)
-CSP_IMG_SRC = ("'self'",)
-CSP_FONT_SRC = ("'self'",)
-CSP_CONNECT_SRC = ("'self'",)
 
 AUTH_USER_MODEL = "bookshelf.CustomUser"
 
@@ -133,22 +124,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Set DEBUG to False in production for security
-DEBUG = False
-
-# Configure XSS filter, prevent clickjacking, and nosniff
-SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY'  # Prevent embedding your site in a frame to protect against clickjacking
-SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent browsers from interpreting files as a different MIME type
-
-# Ensure cookies are sent over HTTPS only
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-
-# Additional security headers
-SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
-SECURE_HSTS_SECONDS = 3600  # Enable HTTP Strict Transport Security (HSTS)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply HSTS to all subdomains
-SECURE_HSTS_PRELOAD = True  # Preload HSTS
-
