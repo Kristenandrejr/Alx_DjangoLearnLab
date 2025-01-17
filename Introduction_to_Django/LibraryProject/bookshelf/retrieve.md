@@ -1,4 +1,5 @@
 # Retrieve Operation
+## Using `Book.objects.get()`
 
 ## Command
 book = Book.objects.first()
